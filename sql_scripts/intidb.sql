@@ -1,3 +1,4 @@
+-- Active: 1772113886541@@127.0.0.1@5432@database_warehouse
 CREATE DATABASE database_warehouse; 
 
 CREATE SCHEMA IF NOT EXISTS bronze;
