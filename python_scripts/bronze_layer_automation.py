@@ -15,21 +15,16 @@ DB_CONFIG = {
 }
 
 DDL_SCRIPTS = [
-    f"{BASE_DIR}/sql_scripts/crm_cust_info_ddl.sql",
-    f"{BASE_DIR}/sql_scripts/crm_prd_info_ddl.sql",
-    f"{BASE_DIR}/sql_scripts/crm_sales_details_ddl.sql",
-    f"{BASE_DIR}/sql_scripts/erp_CUST_AZ12_ddl.sql",
-    f"{BASE_DIR}/sql_scripts/erp_LOC_A101_ddl.sql",
-    f"{BASE_DIR}/sql_scripts/erp_PX_CAT_G1V2_ddl.sql"
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bronze_init/bronze_ddl.sql",
 ]
 
 INSERT_SCRIPTS = [
-    f"{BASE_DIR}/sql_scripts/bulk_insert/crm_cust_info_insert.sql",
-    f"{BASE_DIR}/sql_scripts/bulk_insert/crm_prd_info_insert.sql",
-    f"{BASE_DIR}/sql_scripts/bulk_insert/crm_sales_details_insert.sql",
-    f"{BASE_DIR}/sql_scripts/bulk_insert/erp_CUST_AZ12_insert.sql",
-    f"{BASE_DIR}/sql_scripts/bulk_insert/erp_LOC_A101_insert.sql",
-    f"{BASE_DIR}/sql_scripts/bulk_insert/erp_PX_CAT_G1V2_insert.sql"
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/crm_cust_info_insert.sql",
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/crm_prd_info_insert.sql",
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/crm_sales_details_insert.sql",
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/erp_cust_az12_insert.sql",
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/erp_loc_a101_insert.sql",
+    f"{BASE_DIR}/sql_scripts/bronze_layer/bulk_insert/erp_px_cat_g1v2_insert.sql"
 ]
 
 def run_script(conn, filepath):

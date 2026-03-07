@@ -1,16 +1,3 @@
---Checking for duplicate customer IDs in the bronze layer
-
-SELECT cst_id, count(*)
-FROM silver.crm_cust_info
-GROUP BY cst_id
-HAVING count(*) > 1
-
--- Checking for unwanted spaces
-
-SELECT cst_firstname
-FROM silver.crm_cust_info
-WHERE cst_firstname != trim(cst_firstname);
-
 TRUNCATE TABLE silver.crm_cust_info;
 INSERT INTO silver.crm_cust_info(
     cst_id,

@@ -1,4 +1,5 @@
 -- CRM : Customer Info
+DROP TABLE IF EXISTS silver.crm_cust_info;
 CREATE TABLE IF NOT EXISTS silver.crm_cust_info(
     cst_id INT,
     cst_key VARCHAR(80),
@@ -10,9 +11,12 @@ CREATE TABLE IF NOT EXISTS silver.crm_cust_info(
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- CRM : Product Info
+DROP TABLE IF EXISTS silver.crm_prd_info;
 CREATE TABLE IF NOT EXISTS silver.crm_prd_info( 
     prd_id INT,
     prd_key VARCHAR(80),
+    cat_id VARCHAR(80),
+    subcat_id VARCHAR(80),
     prd_nm VARCHAR(80),
     prd_cost INT,
     prd_line VARCHAR(80),
@@ -21,18 +25,21 @@ CREATE TABLE IF NOT EXISTS silver.crm_prd_info(
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
 -- CRM : Sales Details
+DROP TABLE IF EXISTS silver.crm_sales_details;
 CREATE TABLE IF NOT EXISTS silver.crm_sales_details(
     sls_ord_num VARCHAR(80),
     sls_prd_key VARCHAR(80),
     sls_cust_id BIGINT,
-    sls_order_dt DATE,
-    sls_ship_dt DATE,
-    sls_due_dt DATE,
+    sls_order_dt VARCHAR(80),
+    sls_ship_dt VARCHAR(80),
+    sls_due_dt VARCHAR(80),
     sls_sales BIGINT,
+    sls_quantity BIGINT,
     sls_price BIGINT,
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- ERP : Customer AZ12
+DROP TABLE IF EXISTS silver.erp_cust_az12;
 CREATE TABLE IF NOT EXISTS silver.erp_cust_az12(
     cid VARCHAR(80),
     bdate DATE,
@@ -40,12 +47,14 @@ CREATE TABLE IF NOT EXISTS silver.erp_cust_az12(
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- ERP : Location A101
+DROP TABLE IF EXISTS silver.erp_l0c_a101;
 CREATE TABLE IF NOT EXISTS silver.erp_l0c_a101(
     cid VARCHAR(80),
     cntry VARCHAR(80),
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- ERP : Product Category G1V2
+DROP TABLE IF EXISTS silver.erp_px_cat_g1v2;
 CREATE TABLE IF NOT EXISTS silver.erp_px_cat_g1v2(
     id VARCHAR(80),
     cat VARCHAR(80),
