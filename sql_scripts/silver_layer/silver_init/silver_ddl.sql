@@ -1,12 +1,12 @@
 -- CRM : Customer Info
 DROP TABLE IF EXISTS silver.crm_cust_info;
 CREATE TABLE IF NOT EXISTS silver.crm_cust_info(
-    cst_id INT,
+    cst_id VARCHAR,
     cst_key VARCHAR(80),
     cst_firstname VARCHAR(80),
     cst_lastname VARCHAR(80),
-    cst_marital_status VARCHAR(5),
-    cst_gndr VARCHAR(5),
+    cst_marital_status VARCHAR(50),
+    cst_gndr VARCHAR(50),
     cst_create_date DATE,
     dwh_create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS silver.crm_sales_details;
 CREATE TABLE IF NOT EXISTS silver.crm_sales_details(
     sls_ord_num VARCHAR(80),
     sls_prd_key VARCHAR(80),
-    sls_cust_id BIGINT,
+    sls_cust_id VARCHAR(80),
     sls_order_dt VARCHAR(80),
     sls_ship_dt VARCHAR(80),
     sls_due_dt VARCHAR(80),
