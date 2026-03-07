@@ -1,5 +1,39 @@
 # Data-Warehouse
 
+This project is a primitive data warehouse built with postgres and python. It is a project meant for self-learning. It is semi-automated and can handle new batch data ingestion without failure so long as the data's dirtiness remains within constraints. 
+
+It was built with the medallion architecture and covers the bronze, silver and gold layer with automated scripts for the bronze and silver layers ( for the ingestion and cleaning of raw data. )
+
+![Architecture Diagram](system_architecture_plan.png)
+
+## Project Structure
+
+```
+Data-Warehouse/
+├── Datasets/                        # Source CSV files
+│   └── source_crm/
+│   └── source_erp/
+├── python_scripts/                  # Automation scripts
+│   ├── bronze_layer_automation.py
+│   └── silver_layer_automation.py
+├── sql_scripts/
+│   ├── bronze_layer/
+│   │   ├── bronze_ddl.sql
+│   │   └── bulk_insert/
+│   ├── silver_layer/
+│   │   ├── silver_init/
+│   │   └── silver_cleaning/
+│   └── gold_layer/
+│       ├── customers_dim.sql
+│       ├── products_dim.sql
+│       └── fact_sales.sql
+└── README.md
+```
+## Tech Stack
+
+- **Database**: PostgreSQL
+- **Automation**: Python 3 with `psycopg` and `python-dotenv`
+
 Conventions used for the project
 
 - Snakcase naming ( eg. main_file.py, calculate_limit.cpp )
@@ -56,3 +90,5 @@ Glossary of Category Patterns
 ## Stored procedure
 
 - All stored procedures must be preceded by **`load_`** and followed by the layer being loaded (eg. **`silver`**, **`gold`**, **`bronze`**)
+
+
