@@ -26,5 +26,5 @@ SELECT
     END AS prd_line,
     CAST (prd_start_dt AS DATE) AS prd_start_dt,
     CAST(LEAD(prd_start_dt) OVER (PARTITION BY prd_key ORDER BY prd_start_dt) AS DATE) AS prd_end_dt
-FROM bronze.crm_prd_info LIMIT 10;
+FROM bronze.crm_prd_info;
 

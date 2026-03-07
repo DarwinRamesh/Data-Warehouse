@@ -11,6 +11,7 @@ SELECT
     pc.id AS category_id,
     pc.cat AS category_name,
     pc.subcat AS subcategory_name,
+    pn.subcat_id,
     pc.maintenance AS maintenance_flag
 FROM silver.crm_prd_info pn
 LEFT JOIN silver.erp_px_cat_g1v2 pc
