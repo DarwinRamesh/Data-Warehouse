@@ -4,7 +4,7 @@ This project is a primitive data warehouse built with postgres and python. It is
 
 It was built with the medallion architecture and covers the bronze, silver and gold layer with automated scripts for the bronze and silver layers ( for the ingestion and cleaning of raw data. )
 
-![Architecture Diagram](system_architecture_plan.png)
+![Architecture Diagram](Data-Warehouse/system_architeture_plan.png)
 
 ## Project Structure
 
