@@ -4,6 +4,7 @@ This project is a primitive data warehouse built with postgres and python. It is
 
 It was built with the medallion architecture and covers the bronze, silver and gold layer with automated scripts for the bronze and silver layers ( for the ingestion and cleaning of raw data. )
 
+
 ![Architecture Diagram](system_architeture_plan.png)
 
 ## Project Structure
@@ -66,6 +67,10 @@ Gold Rules
         - Examples:
             - **`<customers>`** refers to a table for customers data
             - **`<product>`** refers to a products data
+
+Integration model for the gold year to dictate star schema logic:
+
+![Integration Model](integration_model.png)
 
 Glossary of Category Patterns
 
