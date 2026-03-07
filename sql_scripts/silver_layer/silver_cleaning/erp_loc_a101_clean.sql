@@ -10,5 +10,3 @@ SELECT
         ELSE cntry
     END as cntry
 FROM bronze.erp_l0c_a101;
-
-SELECT * FROM silver.erp_l0c_a101;

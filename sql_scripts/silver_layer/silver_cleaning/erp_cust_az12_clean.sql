@@ -9,7 +9,7 @@ CASE
     WHEN cid LIKE 'NAS%' THEN substring(cid, 4)
     ELSE cid
 END AS cid,
-bdate,
+CAST(bdate AS DATE) AS bdate,
 CASE 
     WHEN gen = 'Male' THEN 'Male'
     WHEN gen = 'Female' THEN 'Female'
