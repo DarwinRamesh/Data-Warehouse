@@ -4,6 +4,24 @@ This project is a primitive data warehouse built with postgres and python. It is
 
 It was built with the medallion architecture and covers the bronze, silver and gold layer with automated scripts for the bronze and silver layers ( for the ingestion and cleaning of raw data. )
 
+## Functions and tools
+
+The main goal of this ETL pipeline is to ingest dirty data from CSVs, clean them, add proper business and analytics-derived constraints and then making a star-schema for easy and efficient analystical queries in the future. SQL was used to ingest, clean and integrate data into postgres from my local system whilst Python along with the .env and psycopg3 libs were used to orchestrate the data warehouse, allowing for automation and secure accessing of sensitive business data. 
+
+CSV data used is processed in batches. Additional CSVs may be added with slight modifications to the orchestration scripts. The silver_layer.py and bronze_layer.py scripts are intentionally segmented into 2 different scripts to ensure easy debugging in case of future data straying from the current system constraints. 
+
+For the Gold Layer, a star schema was used instead of a snowflake-style view design. This was an intentional system architetcure design choice. The reasoning for such a design choice stemmed from the fact that the raw data complexity was not high enough to warrant a snowflake-style design. A star-schema can be easily converted into a snowflake-style view design if future analytics demand requires it.
+
+Draw.io was used to plan to basic system archietcure as well as to design the final integration model for the gold layer. Both diagrams are included in the repository under intergration_model/png and system_architecture_plan.png. Good documentation is non-negotioable in systems that are being built to scale up. 
+
+## Project constraints
+
+The current model is fairly scalable given that the dirtyness of the raw data ingested is limited to a certain degree. This data-warehouse is not containerized or embedded with other tools like for example, DataBricks or a dashboard tool. As a result, it is very lightweight but lacks in scalability, real time data streaming and robust features. For future projects, it is probably better for me to add in a few more implementations to any given pipeline for increased scalability, ideas include but are not limited to things like a centralized platform ( eg. DataBricks where connections with other tools like powerBI or dbt Cloud is made much easier with inbuilt dashboard tooling ) or containerization technologies like docker for easy deployment on multiple systems and the handling of dependencies ( as my scripts utilize multiple libraries ).
+
+## Possible future implementations
+
+Docker
+Data Visualisation tooling
 
 ![Architecture Diagram](system_architeture_plan.png)
 
